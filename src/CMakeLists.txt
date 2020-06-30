@@ -28,6 +28,12 @@ list (APPEND SRC ${CMAKE_CURRENT_SOURCE_DIR}/ibex_CtcQInter2.cpp
                  # For most plugins, the rest can be left as is.
                  )
 
+list (APPEND HDR ${CMAKE_CURRENT_SOURCE_DIR}/ibex_CtcQInter2.h
+                 ${CMAKE_CURRENT_SOURCE_DIR}/ibex_KCoreGraph.h
+                 ${CMAKE_CURRENT_SOURCE_DIR}/ibex_QInter2.h
+                 )
+
+
 # Create the target for libibex-param-estim
 add_library (ibex-param-estim ${SRC})
 # TODO BUILD_INTERFACE and INSTALL_INTERFACE for inc dirs
@@ -37,6 +43,7 @@ target_link_libraries (ibex-param-estim PUBLIC Ibex::ibex)
 # installation of libibex-param-estim files
 list_filter_header (HDR ${SRC}) # Ibex should have installed this function
 install (TARGETS ibex-param-estim DESTINATION ${CMAKE_INSTALL_LIBDIR})
+message("headers" ${HDR})
 install (FILES ${HDR} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ibex-param-estim)
 
 
