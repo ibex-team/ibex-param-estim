@@ -8,6 +8,8 @@ def options (opt):
 	opt.add_option ("--with-param-estim", action="store_true",
 			dest="WITH_PARAM_ESTIM", help = "Use Parameter Estimation plugin")
 
+	opt.plugins["param-estim"] = "WITH_PARAM_ESTIM"
+	
 ######################
 ##### configure ######
 ######################
